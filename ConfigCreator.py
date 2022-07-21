@@ -20,8 +20,6 @@ props['to'] = toStr
 
 appStrings = []
 appStrings.append('minecraft')
-appStrings.append('anotherApp')
-appStrings.append('chrome')
 
 
 props['apps'] = appStrings
