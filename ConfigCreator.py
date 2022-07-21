@@ -1,5 +1,6 @@
 from datetime import datetime ;
 from datetime import timedelta ;
+import json
 
 f= open('minecraft.config', 'w')
 
@@ -12,7 +13,19 @@ format  = '%y:%m:%d:%H:%M'
 fromStr = now.strftime(format)
 toStr = end.strftime(format)
 
-f.write(fromStr)
-f.write('\n')
-f.write(toStr)
+props = {}
+props['action'] = 'allow'
+props['from'] = fromStr
+props['to'] = toStr
+
+appStrings = []
+appStrings.append('minecraft')
+appStrings.append('anotherApp')
+
+props['apps'] = appStrings
+
+config = json.dumps(props)
+print(config)
+
+f.write(config)
 f.close()
